@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>.:: LOCATION ::.</title>
+
+    <!-- Menghubungkan CSS -->
+     <link rel="stylesheet" href="alse.css">
+	<style>
+
+        /* KUNCI UTAMA: Bikin gerakan halaman halus saat diklik */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: transparent;
+            color: #fff;
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding-top: 50px;
+        }
+
+        /* KONTEN HALAMAN LOCATION */
+        .location-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 45px;
+            font-family:'Times New Roman', Times, serif;
+            margin-bottom: 5px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #ddd;
+            padding-bottom: 30px;
+        }
+
+        /* KARTU TIAP CABANG LOKASI */
+        .location-card {
+            display: flex;
+            background-color: #660f049d;
+            height: 310px;
+            width: 700px;
+            border-radius: 50px;
+            padding: 30px;
+            margin-bottom: 40px;
+            gap: 30px;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .location-info {
+            flex: 1;
+        }
+        .location-info h2 {
+            margin-top: 0;
+            font-size: 24px;
+            color: #fff;
+        }
+        .location-info p {
+            margin: 10px 0;
+            color: #f0f0f0;
+            font-size: 15px;
+        }
+
+        /* TOMBOL MAPS */
+        .map-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #5a1209;
+            text-decoration: none;
+            font-family: 'Arial';
+            font-weight: bold;
+            border-radius: 20px;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .map-btn:hover {
+            background-color: #e00000;
+            transform: translateY(-2px);
+            color: #ffffff;
+        }
+        .location-map {
+            flex: 1;
+        }
+        .place-img {
+            width: 99%;
+            height: 300px;
+            border-radius: 30px;
+            overflow: hidden;
+            border: 1px dashed rgba(255,255,255,0.2);
+        }
+        .place-img img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* SCROLLBAR CHROME */
+		::-webkit-scrollbar {
+		   display: none;
+		}
+		/* HIDE SCROLLBAR FOR IE, EDGE, AND FIREFOX */
+		html, body {
+		  -ms-overflow-style: none;
+		  scrollbar-width: none;
+		}
+    </style>
+</head>
+
+<body>
+    <!-- KONTEN UTAMA LOCATION -->
+    <main class="location-container" id="location">
+        <h1 class="section-title">────────⠀⠀<i>Our Locations</i>⠀⠀────────</h1>
+        <p class="section-subtitle">Kunjungi cabang terdekat kami dan nikmati kelezatan salt bread hangat setiap hari.</p>
+
+        <!-- CABANG 1: FLAGSHIP STORE -->
+        <section id="flagship" class="location-card">
+            <div class="location-info">
+                <h2>Alse Salt Bread - Flagship Store</h2>
+                    <p> Jl. Riau No. 123, Bandung Pusat</p>
+                    <p> Jam Buka : 08.00 - 21.00 WIB</p>
+                    <p> Contact : 0812-3456-7890</p>
+                    <a href="https://maps.google.com" target="_blank" class="map-btn">Open with Google Maps</a>
+            </div>
+
+            <div class="location-map">
+                <!-- Ganti dengan iframe Google Maps asli cabang 1 -->
+                <div class="place-img">
+                    <img src="st image/toko1.jpg"
+                </div>
+            </div>
+        </section>
+
+        <!-- CABANG 2: DAGO BRANCH -->
+        <section id="dago" class="location-card">
+            <div class="location-info">
+                <h2>Alse Salt Bread - Dago Branch</h2>
+                <p> Jl. Ir. H. Juanda No. 88, Dago, Bandung</p>
+                <p> Jam Buka : 07.00 - 22.00 WIB</p>
+                <p> WhatsApp : 0812-9876-5432</p>
+                <a href="https://maps.google.com" target="_blank" class="map-btn">Open with Google Maps</a>
+            </div>
+
+            <div class="location-map">
+                <!-- Ganti dengan iframe Google Maps asli cabang 1 -->
+                <div class="place-img">
+                    <img src="st image/toko2.jpg"
+                </div>
+            </div>
+        </section>
+
+        <!-- CABANG 3: BUAH BATU BRANCH -->
+        <section id="buahbatu" class="location-card">
+            <div class="location-info">
+                <h2>Alse Salt Bread - Buah Batu Branch</h2>
+                <p> Jl. Buah Batu No. 210, Bandung</p>
+                <p> Jam Buka : 09.00 - 21.00 WIB</p>
+                <p> WhatsApp : 0813-5555-6666</p>
+                <a href="https://maps.google.com" target="_blank" class="map-btn">Open with Google Maps</a>
+            </div>
+
+            <div class="location-map">
+                <!-- Ganti dengan iframe Google Maps asli cabang 1 -->
+                <div class="place-img">
+                    <img src="st image/toko3.jpg"
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

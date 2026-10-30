@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>.:: PROFILE ::.</title>
+		<style>
+			html {
+            scroll-behavior: smooth;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow-y: auto;
+            background-color: transparent;
+			padding-top: 105px;
+        }
+			.profile-container {
+				width: 92%;
+				max-width: 1000px;
+				margin: 40px auto 60px auto;
+			}
+            
+			/* Split Layout */
+			.story-section {
+				display: flex;
+				align-items: center;
+				gap: 40px;
+				background: #660f049d;
+				padding: 40px;
+				border-radius: 50px;
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+				border: 1px solid rgba(255,255,255,0.1);
+				margin-bottom: 10px;
+			}
+			.story-text {
+				flex: 1;
+			}
+			.story-text h1 {
+				color: #ffffff;
+				font-size: 50px;
+				margin-bottom: 15px;
+				line-height: 40px;
+				font-family: 'Times New Roman';
+			}
+			.story-text p {
+				color: #ffffffcb;
+				line-height: 1.5;
+				margin-bottom: 15px;
+				font-size: 16px;
+				font-family: 'Times New Roman';
+				text-align: justify;
+			}
+			.story-image {
+				flex: 1;
+				height: 340px;
+				border-radius: 20px;
+				overflow: hidden;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+			}
+			.story-image img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			/* What Makes Us Special */
+			.special-section {
+    			padding: 80px 0;
+			}
+			.special-grid {
+    			display: grid;
+    			grid-template-columns: repeat(3, 1fr);
+    			gap: 25px;
+			}
+			.special-card {
+    			background-color: #660f049d;
+    			padding: 35px 25px;
+    			border-radius: 50px;
+    			text-align: center;
+    			border: 1px solid rgba(255,255,255,0.1);
+    			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			}
+			.special-card:hover {
+    			transform: translateY(-8px);
+    			box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    			background-color: #7a1306;
+			}
+			.special-card h3 {
+    			font-size: 1.3rem;
+    			color: #e2c484;
+    			margin-bottom: 12px;
+				text-shadow: 0 10px 30px rgba(0, 0, 0, 0.699);
+			}
+			.special-card p {
+    			font-size: 0.95rem;
+    			color: #ffffffcb;
+			}
+			.section-title {
+    			text-align: center;
+    			font-size: 2.2rem;
+    			color: #ffffff;
+    			margin-bottom: 5px;
+			}
+			.section-subtitle {
+    			text-align: center;
+    			color: #dfa8a2;
+    			margin-bottom: 40px;
+    			font-size: 1.05rem;
+			}
+		    
+			/* Responsif HP */
+			@media (max-width: 768px) {
+				.story-section {
+					flex-direction: column;
+					padding: 20px;
+				}
+				.story-image {
+					width: 100%;
+					height: 220px;
+				}
+			}
+
+			/* SCROLLBAR CHROME */
+		::-webkit-scrollbar {
+		   display: none;
+		}
+		/* HIDE SCROLLBAR FOR IE, EDGE, AND FIREFOX */
+		html, body {
+		  -ms-overflow-style: none;
+		  scrollbar-width: none;
+		}
+
+		/* Our Craft Section */
+		.craft-section {
+    		padding: 20px 0;
+    		background-color: transparent;
+		}
+		.craft-wrapper {
+    		display: flex;
+    		gap: 40px;
+    		align-items: center;
+		}
+		.craft-slider-container {
+    		flex: 1;
+    		overflow: hidden;
+    		border-radius: 50px;
+    		box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    		height: 320px;
+		}
+
+		/* CSS Auto Slide Animation */
+		.slider-track {
+    		display: flex;
+    		width: 400%;
+    		height: 100%;
+    		animation: autoSlide 12s infinite cubic-bezier(0.65, 0, 0.35, 1);
+		}
+		.slide {
+    		width: 25%;
+    		height: 100%;
+		}
+		.slide img {
+    		width: 100%;
+    		height: 100%;
+    		object-fit: cover;
+		}
+
+		@keyframes autoSlide {
+    		0%, 28% { transform: translateX(0); }
+    		33%, 61% { transform: translateX(-25%); }
+    		66%, 94% { transform: translateX(-50%); }
+    		100% { transform: translateX(-75%); }
+		}
+		.craft-details {
+    		flex: 1;
+    		display: flex;
+    		flex-direction: column;
+    		gap: 20px;
+		}
+		.craft-card {
+    		display: flex;
+    		align-items: flex-start;
+    		gap: 15px;
+    		background: #660f049d;
+    		padding: 20px;
+    		border-radius: 30px;
+    		border: 1px solid rgba(255,255,255,0.08);
+		}
+		.craft-info h3 {
+    		color: #e2c484;
+    		margin-bottom: 5px;
+		}
+		.craft-info p {
+    		font-size: 0.95rem;
+    		color: #ffffffcb;
+		}
+		</style>
+	</head>
+	<body>
+
+  <!-- Konten Utama Profile -->
+  <div class="profile-container">
+    
+    <div class="story-section">
+      <div class="story-text">
+        <h1>Cerita di Balik Kelezatan</h1>
+        <p>
+          <strong>Alse Salt Bread</strong> berawal dari kecintaan mendalam pada seni pembuatan roti klasik yang mengedepankan kesederhanaan bahan namun kaya akan rasa. Kami percaya bahwa kelezatan sejati lahir dari perpaduan mentega pilihan berkualitas tinggi dan taburan garam laut yang pas.
+        </p>
+        <p>
+          Setiap tangkup roti yang keluar dari oven dirancang untuk memberikan tekstur renyah di luar, namun super lembut dan berongga mentega di bagian dalam, menciptakan pengalaman bersantap yang tak terlupakan di setiap gigitannya.
+        </p>
+      </div>
+      <div class="story-image">
+        <!-- Pastikan nama file gambar sesuai dengan yang kamu punya -->
+        <img src="st image/butterlove.jpg" alt="Suasana Toko Alse Salt Bread">
+      </div>
+    </div>
+
+    <!-- What Makes Us Special -->
+    <section class="special-section">
+        <div class="container">
+            <h2 class="section-title">────────⠀⠀<i>What Makes Us Special</i>⠀⠀────────</h2>
+            <p class="section-subtitle">Alasan Mengapa Alse Salt Bread Selalu Dinanti</p>
+
+            <div class="special-grid">
+                <div class="special-card">
+                    <h3>Made With Love</h3>
+                    <p>Dibuat segar setiap hari dengan penuh dedikasi dan cinta dari para baker kami agar setiap gigitan memberikan rasa kehangatan rumah.</p>
+                </div>
+
+                <div class="special-card">
+                    <h3>Original Recipes</h3>
+                    <p>Menggunakan resep asli khas Alse Salt Bread yang telah disempurnakan berulang kali hingga menemukan rasa gurih manis paling presisi.</p>
+                </div>
+
+                <div class="special-card">
+                    <h3>Community Focused</h3>
+                    <p>Mendukung petani dan pemasok lokal untuk bahan baku pelengkap serta terus berkomitmen menghadirkan kebaikan bagi komunitas sekitar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+	<!-- Our Craft -->
+    <section class="craft-section">
+        <div class="container">
+            <h2 class="section-title">────────⠀⠀<i>Our Craft</i>⠀⠀────────</h2>
+            <p class="section-subtitle">Keahlian dan Dedikasi di Setiap Adonan Roti</p>
+
+            <div class="craft-wrapper">
+                <!-- AUTO SLIDER FOTO -->
+                <div class="craft-slider-container">
+                    <div class="slider-track">
+                        <div class="slide"><img src="st image/gambarproses1.png" alt="Proses Pembuatan Roti 1"></div>
+                        <div class="slide"><img src="st image/gambarproses2.jpg" alt="Proses Pembuatan Roti 2"></div>
+                        <div class="slide"><img src="st image/gambarproses3.jpg" alt="Proses Pembuatan Roti 3"></div>
+                        <!-- Duplicate untuk seamless infinite loop -->
+                        <div class="slide"><img src="st image/gambarproses1.png" alt="Proses Pembuatan Roti 1"></div>
+                    </div>
+                </div>
+
+                <!-- Keahlian -->
+                <div class="craft-details">
+                    <div class="craft-card">
+                        <div class="craft-info">
+                            <h3>Bahan Premium Berkualitas</h3>
+                            <p>Kami hanya mengombinasikan mentega murni impor dengan racikan tepung khusus dan taburan sea salt alami pilihan tanpa tambahan pengawet buatan.</p>
+                        </div>
+                    </div>
+
+                    <div class="craft-card">
+                        <div class="craft-info">
+                            <h3>Metode Tradisional</h3>
+                            <p>Setiap gulungan roti dibentuk satu per satu menggunakan tangan oleh baker berpengalaman kami untuk menjaga tekstur renyah di luar dan lembut lumer di dalam.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
