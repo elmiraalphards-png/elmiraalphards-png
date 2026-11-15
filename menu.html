@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.:: MENU ::.</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow-y: auto;
+            background-color: transparent;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* HEADER MENU */
+        .menu-header {
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 18px;
+            font-family:'Times New Roman';
+            font-size: 4.6rem;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.699);
+        }
+        .hero-blend-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: url('st image/saltbread2.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff;
+            margin-top: 70px;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+        
+        /* GRID MENU PRODUK */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 1300px;
+        }
+        
+        /* CARD PRODUK */
+        .menu-card {
+            background-color: #660f049d;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px;
+            display: flex;
+            max-width: 233px;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .menu-card:hover {
+            background-color: #7a1306;
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            border-color: #F1D8B8;
+        }
+        
+        .card-img-wrapper {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background-color: #F3ECE7;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-body {
+            padding-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .card-title {
+            font-family: 'Bell Mt';
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        .card-desc {
+            font-size: 0.88rem;
+            color: #D1C2B8;
+            line-height: 1;
+            margin-bottom: 5px;
+            flex-grow: 1;
+            font-family: 'Tw Cen MT';
+        }
+        .price {
+            font-size: 1.3rem;
+            color: #FFFFFF;
+            font-family: 'Britannic Bold';
+            font-weight: bold;
+        }
+
+        .card-options {
+            margin-top: 4px;
+        }
+        .option-title {
+            display: block;
+            font-size: 0.75rem;
+            color: #D1C2B8;
+            margin-bottom: 4px;
+            font-family: 'Tw Cen MT';
+        }
+        .size-options {
+            display: flex;
+            gap: 8px;
+        }
+        .btn-size {
+            border: 1px solid #E2D7D0;
+            padding: 5px 14px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #52433B;
+            background-color: #FAF6F3;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-size.active {
+            background-color: #f5c586;
+            color: #2b1810;
+            border-color: #B89368;
+            font-weight: 700;
+        }
+        
+        .card-action {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            gap: 8px;
+        }
+        .qty-control {
+            display: flex;
+            align-items: center;
+            background-color: #F7F2EE;
+            border-radius: 15px;
+            padding: 2px 6px;
+        }
+        .btn-qty {
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #52433B;
+            cursor: pointer;
+            padding: 4px 8px;
+        }
+        .qty-num {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2b1810;
+            padding: 0 4px;
+        }
+        .btn-add {
+            flex: 1;
+            background-color: #2B1810;
+            color: #ffffff;
+            border: none;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            border-radius: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-add:hover {
+            background-color: #F1D8B8;
+            color: #2b1810;
+        }
+
+        /* Tombol Kategori */
+        .category-buttons {
+            padding-top: 15px;
+        }
+        .cat-btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: rgba(247, 191, 118, 0.384);
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Arial';
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.699);
+            border: 2px solid #ffffff;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-left : 30px;
+            margin-right : 30px;
+            margin-top: 15px;
+        }
+        .cat-btn:hover {
+            background-color: #ffffff;
+            color: #2b1810;
+            box-shadow: 0 4px 12px rgba(241, 216, 184, 0.3);
+             transform: translateY(-4px);
+        }
+
+        .menu-section {
+            width: 97%;
+            max-width: 1250px;
+            margin: 0 auto 60px auto;
+        }
+        .category-title {
+            font-family:'Times New Roman', Times, serif;
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(241, 216, 184, 0.25);
+            padding-bottom: 10px;
+            width: 97%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    
+        ::-webkit-scrollbar { display: none; }
+        html, body { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* CART DRAWER & ANIMASI MELAYANG (GESER POSISI) */
+        @keyframes floatSubtle {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        .floating-hint {
+            position: absolute;
+            top: -26px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #850000;
+            color: #fffaed;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 10px;
+            white-space: nowrap;
+            pointer-events: none;
+            animation: floatSubtle 2s ease-in-out infinite;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .cart-drawer {
+            position: fixed;
+            bottom: 25px;
+            width: 90%;
+            max-width: 500px;
+            background-color: #fffaed;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 20px 24px;
+            z-index: 1000;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1), bottom 0.3s ease;
+        }
+        /* Posisi Cart Drawer Dinamis */
+        .cart-drawer.pos-center {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .cart-drawer.pos-right {
+            left: calc(100% - 25px);
+            transform: translateX(-100%);
+        }
+        .cart-drawer.pos-left {
+            left: 25px;
+            transform: translateX(0%);
+        }
+        /* Hidden state awal */
+        .cart-drawer.hidden-drawer {
+            bottom: -100% !important;
+        }
+
+        .cart-header {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            color: #850000;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #d8d6d6;
+            padding-bottom: 8px;
+        }
+        .cart-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #850000;
+        }
+        .cart-item-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            max-height: 130px;
+            overflow-y: auto;
+        }
+        .cart-item {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 12px;
+            color: #000000;
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+        .cart-item-qty { text-align: center; }
+        .cart-item-price { text-align: right; min-width: 80px; }
+
+        .cart-total-section {
+            color:rgba(189, 90, 9, 0.973);
+            font-family: 'Britannic Bold';
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 25px;
+            font-weight: 950;
+            padding-top: 8px;
+            border-top: 1px solid #d8d6d6;
+        }
+        .btn-order-now {
+            width: 100%;
+            background: #830000;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 0.95rem;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-order-now:hover {
+            background-color: #F1D8B8;
+            color: #2b1810;
+        }
+
+        /* POP-UP LEBAR AESTHETIC */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; 
+            overflow-y: auto; 
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 100px 20px 40px 20px; 
+        }
+        .popup-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        .popup-container {
+            background-color: #fffaed;
+            width: 850px;
+            max-width: 92%;
+            height: auto;
+            max-height: none;
+            overflow-y: visible; 
+            box-sizing: border-box;
+            border-radius: 40px;
+            padding: 30px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            color: #850000;
+        }
+
+        .popup-overlay.show .popup-container {
+            transform: scale(1);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px; right: 20px;
+            background: none; border: none;
+            font-size: 26px; cursor: pointer;
+            color: #920000;
+        }
+        .popup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+        .popup-left {
+            background: #ffba61;
+            border: 3px dashed #920000;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            border-top-left-radius: 180px;
+            border-top-right-radius: 180px;
+            min-height: 100%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            padding: 40px 20px;
+        }
+        .parallax-img {
+            width: 80%;
+            max-width: 280px;
+            transition: transform 0.1s ease-out;
+            pointer-events: none;
+        }
+        .popup-right {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+        }
+        .popup-right h2 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: 'Times New Roman', Times, serif;
+            border-bottom: 1px solid #d8d6d6;
+            padding-bottom: 6px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            color: #850000;
+            font-family: Arial;
+            font-size: 15px;
+            font-weight: 650;
+            margin-bottom: 3px;
+        }
+        .popup-input {
+            font-family:Arial, sans-serif;
+            width: 100%;
+            border: 1px solid #f0f0f0;
+            padding: 8px 10px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            background: #ebe2e2;
+            margin-bottom: 3px;
+        }
+        .popup-total-section {
+            color:rgba(189, 90, 9, 0.973);
+            font-family: 'Britannic Bold';
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #d8d6d6;
+            margin: 6px 0;
+            padding-top: 6px;
+            font-size: 25px;
+            font-weight: 950;
+        }
+        .bold-price {
+            font-weight: 950;
+            color: rgba(189, 90, 9, 0.973);
+            font-size: 25px;
+            font-family: 'Britannic Bold';
+        }
+        .btn-fix-order {
+            width: 100%;
+            background: #830000;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 30px;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 17px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-fix-order:hover {
+            background: #f1d8b8;
+            color: #2b1810;
+        }
+        .summary-wrapper {
+            background-color: #fffaed; /* BERSIH DARI WARNA PUTIH TRANSPARAN */
+            margin-bottom: 8px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            color: #2b1810;
+            max-height: 120px;
+            overflow-y: auto;
+            border: none;
+        }
+        .first-item-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        .summary-first-item {
+            font-size: 13.5px;
+            font-weight: 600;
+            flex: 1;
+        }
+        .btn-toggle-icon {
+            background: rgba(43, 24, 16, 0.1);
+            border: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            color: #2b1810;
+            font-size: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        .btn-toggle-icon:hover {
+            background: rgba(43, 24, 16, 0.2);
+        }
+        .arrow-icon {
+            transition: transform 0.3s ease;
+        }
+        .btn-toggle-icon.active .arrow-icon {
+            transform: rotate(180deg);
+        }
+        .more-items-list { 
+            font-size: 13.5px;
+            font-weight: 600;
+            display: none;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        /* POPUP KARTU TAKE AWAY KHUSUS */
+        .takeaway-card {
+            background-color: #fffaed;
+            color: #850000;
+            width: 400px;
+            max-width: 92%;
+            border-radius: 35px;
+            padding: 35px 25px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            border: 2px dashed #850000;
+        }
+        .close-takeaway {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #850000;
+            cursor: pointer;
+        }
+        .countdown-box {
+            margin-bottom: 15px;
+        }
+        .timer-text {
+            font-size: 44px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-top: 5px;
+            font-family: 'Britannic Bold';
+        }
+        .queue-info {
+            background-color: #ffba61;
+            padding: 20px;
+            border-radius: 25px;
+            margin: 15px 0;
+        }
+        .customer-display-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            text-transform: capitalize;
+        }
+        .queue-number-box h1 {
+            font-size: 68px;
+            margin: 5px 0 0 0;
+            line-height: 1;
+            font-family: 'Britannic Bold';
+        }
+        .label-small {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            opacity: 0.8;
+        }
+        .card-footer-note {
+            font-size: 13px;
+            color: rgba(133, 0, 0, 0.65);
+            margin-top: 20px;
+            font-style: italic;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CART DRAWER DENGAN TEKS MELAYANG -->
+    <div id="cartDrawer" class="cart-drawer pos-center hidden-drawer">
+        <div class="floating-hint">Ketuk untuk menggeser.</div>
+        <div class="cart-header">
+            <h2><i>Drag Your Favorite!</i></h2>
+            <button id="closeCart" class="cart-close">&times;</button>
+        </div>
+        <ul id="cartItemList" class="cart-item-info"></ul>
+        <div class="cart-total-section">
+            <span>Total :</span>
+            <span id="cartTotalPrice" class="bold-price">Rp 0</span>
+        </div>
+        <button id="btnOrderNow" class="btn-order-now">Order Now</button>
+    </div>
+
+    <!-- POP-UP ORDER SUMMARY -->
+    <div id="customPopup" class="popup-overlay">
+        <div class="popup-container">
+            <button id="closeCustomPopup" class="close-popup">&times;</button>
+
+                <!-- KIRI -->
+            <div class="popup-grid">
+                <div class="popup-left" id="parallaxContainer">
+                    <img src="st image/classicpantransparent.png" alt="Alse Salt Bread" class="parallax-img" id="cursorImg">
+                </div>
+
+                <!-- KANAN -->
+                <div class="popup-right">
+                    <h2><i>Order Details</i></h2>
+    
+                    <div class="form-group">
+                        <label>Your Items:</label>
+                        <div class="summary-wrapper">
+                            <div class="first-item-row">
+                                <div id="firstItem" class="summary-first-item"></div>
+                                <button id="toggleItemsBtn" class="btn-toggle-icon" style="display: none;" title="Lihat item lainnya">
+                                    <span class="arrow-icon">▼</span>
+                                </button>
+                            </div>
+                            <div id="moreItemsList" class="more-items-list" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name :</label>
+                        <input type="text" id="popupCustomerName" class="popup-input" placeholder="Masukkan nama kamu" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Order Type :</label>
+                        <select id="popupOrderType" class="popup-input">
+                            <option value="dineIn">Dine In</option>
+                            <option value="takeAway">Take Away</option>
+                            <option value="delivery">Delivery</option>
+                        </select>
+                    </div>
+
+                    <!-- CONTAINER DINAMIS (Table Number / Your Address) -->
+                    <div id="dynamicOrderInput"></div>
+
+                    <div class="form-group">
+                        <label>Payment Method :</label>
+                        <select id="paymentMethod" class="popup-input"></select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Note :</label>
+                        <textarea id="orderNote" class="popup-input" placeholder="Contoh: Jangan terlalu asin..."></textarea>
+                    </div>
+
+                    <div class="popup-total-section">
+                        <span>Total :</span>
+                        <span id="popupTotalPrice" class="bold-price">Rp 0</span>
+                    </div>
+
+                    <button id="btnFixOrder" class="btn-fix-order">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP KARTU KARTU TAKE AWAY -->
+    <div id="takeawayModal" class="popup-overlay">
+        <div class="takeaway-card">
+            <button type="button" class="close-takeaway" id="closeTakeawayBtn">✕</button>
+            
+            <div class="countdown-box">
+                <span class="label-small">Estimasi Siap Dalam</span>
+                <div id="takeawayTimer" class="timer-text">15:00</div>
+            </div>
+
+            <div class="queue-info">
+                <p class="customer-display-name" id="displayCustomerName">Nama Pemesan</p>
+                <div class="queue-number-box">
+                    <span class="label-small">Nomor Antrean</span>
+                    <h1 id="queueNumber">A-14</h1>
+                </div>
+            </div>
+
+            <p class="card-footer-note">
+                Tunjukan kartu ini saat ingin mengambil pesanan Anda!
+            </p>
+        </div>
+    </div>
+
+    <!-- HERO HEADER -->
+    <div class="hero-blend-container">
+        <div class="hero-content">
+            <p class="menu-header">Pilih Varian Salt Bread Favoritmu</p>
+            <p class="menu-header">Yang Dipanggang Fresh Setiap Hari.</p>
+            <div class="category-buttons">
+                <a href="#classic" class="cat-btn">Classic</a>
+                <a href="#sweet" class="cat-btn">Sweet</a>
+                <a href="#savory" class="cat-btn">Savory</a>
+                <a href="#bundle" class="cat-btn">Bundle</a>
+                <a href="#promo" class="cat-btn">Promo</a>
+            </div>
+        </div>
+    </div>
+
+        <!-- CLASSIC SECTION -->
+        <section id="classic" class="menu-section">
+            <h2 class="category-title">Classic Series</h2>
+            <div class="menu-grid">
+
+        <!-- ITEM 1 -->
+        <div class="menu-card" data-price="10000" data-jumbo="15000">
+            <div class="card-img-wrapper">
+                <img src="st image/classicpan.jpg" alt="Classic Butter Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Classic Butter Salt Bread</h3>
+                <p class="card-desc">Salt bread dengan taburan sea salt yang renyah.</p>
+                <span class="price">Rp 10.000</span>
+
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 2 -->
+         <div class="menu-card" data-price="12000" data-jumbo="17000">
+            <div class="card-img-wrapper">
+                <img src="st image/butterlove.jpg" alt="Butter Love Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Butter Love Salt Bread</h3>
+                <p class="card-desc">Salt bread Classic dengan ekstra isian butter.</p>
+                <span class="price">Rp 12.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+         
+         <!-- ITEM 3 -->
+         <div class="menu-card" data-price="12000" data-jumbo="17000">
+            <div class="card-img-wrapper">
+                <img src="st image/honeysesameseeds.jpg" alt="Honey Sesame Seeds Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Honey Sesame Seeds Salt Bread</h3>
+                <p class="card-desc">Salt bread Classic dengan taburan biji wijen yang melimpah.</p>
+                <span class="price">Rp 12.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 4 -->
+         <div class="menu-card" data-price="12000" data-jumbo="17000">
+            <div class="card-img-wrapper">
+                <img src="st image/classichoney.jpg" alt="Classic Honey Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Classic Honey Salt Bread</h3>
+                <p class="card-desc">Salt bread Classic rasa madu murni yang renyah.</p>
+                <span class="price">Rp 12.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ITEM 5 -->
+         <div class="menu-card" data-price="12000" data-jumbo="17000">
+            <div class="card-img-wrapper">
+                <img src="st image/blackolive.jpg" alt="Black Olive Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Black Olive Salt Bread</h3>
+                <p class="card-desc">Salt bread Classic dengan taburan buah zaitun hitam yang autentik.</p>
+                <span class="price">Rp 10.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <! -- SWEET SECTION -- >
+        <section id="sweet" class="menu-section">
+            <h2 class="category-title">Sweet Series</h2>
+            <div class="menu-grid">
+
+         <!-- ITEM 6 -->
+         <div class="menu-card" data-price="13000" data-jumbo="18000">
+            <div class="card-img-wrapper">
+                <img src="st image/classicchocofilling.jpg" alt="Choco Filling Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Choco Filling Salt Bread</h3>
+                <p class="card-desc">Salt bread dengan isian krim coklat dan taburan choco crunchy diatasnya.</p>
+                <span class="price">Rp 13.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 7 -->
+         <div class="menu-card" data-price="15000" data-jumbo="20000">
+            <div class="card-img-wrapper">
+                <img src="st image/matchapan.jpg" alt="Matcha Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Matcha Salt Bread</h3>
+                <p class="card-desc">Salt bread matcha yang autentik dengan isian krim coklat.</p>
+                <span class="price">Rp 15.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 8 -->
+         <div class="menu-card" data-price="20000" data-jumbo="30000">
+            <div class="card-img-wrapper">
+                <img src="st image/darkchoco.jpg" alt="Double Dark Choco Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Double Dark Choco Salt Bread</h3>
+                <p class="card-desc">Salt Bread coklat dengan isian dark choco.</p>
+                <span class="price">Rp 20.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 9 -->
+         <div class="menu-card" data-price="30000" data-jumbo="40000">
+            <div class="card-img-wrapper">
+                <img src="st image/chocopistachio.jpg" alt="Choco Pistachio Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Choco Pistachio Salt Bread</h3>
+                <p class="card-desc">Salt bread coklat dengan isian pistachio kunafa dan taburan kacang pistachio.</p>
+                <span class="price">Rp 30.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 10 -->
+         <div class="menu-card" data-price="20000" data-jumbo="35000">
+            <div class="card-img-wrapper">
+                <img src="st image/greentea.jpg" alt="Green Tea Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Green Tea Salt Bread</h3>
+                <p class="card-desc">Salt bread green tea dengan isian krim vanila.</p>
+                <span class="price">Rp 20.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 11 -->
+         <div class="menu-card" data-price="18000" data-jumbo="25000">
+            <div class="card-img-wrapper">
+                <img src="st image/milkjam.jpg" alt="Milk Jam Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Milk Jam Salt Bread</h3>
+                <p class="card-desc">Salt Bread vanilla dengan lapisan milk jam yang manis.</p>
+                <span class="price">Rp 18.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 12 -->
+         <div class="menu-card" data-price="20000" data-jumbo="35000">
+            <div class="card-img-wrapper">
+                <img src="st image/lotusslatbread.jpg" alt="Lotus Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Lotus Salt Bread</h3>
+                <p class="card-desc">Salt bread dengan isian lotus krim karamel dan remahan biskuit lotus diatasnya.</p>
+                <span class="price">Rp 20.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 13 -->
+         <div class="menu-card" data-price="18000" data-jumbo="25000">
+            <div class="card-img-wrapper">
+                <img src="st image/pumpkinsaltbread.jpg" alt="Pumpkin Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Pumpkin Salt Bread</h3>
+                <p class="card-desc">Salt Bread dengan isian buah labu yang creamy dan dibalut lapisan madu putih.</p>
+                <span class="price">Rp 18.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 14 -->
+         <div class="menu-card" data-price="15000" data-jumbo="20000">
+            <div class="card-img-wrapper">
+                <img src="st image/karamelcoffee.png" alt="Caramel Coffee Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Caramel Coffee Salt Bread</h3>
+                <p class="card-desc">Salt Bread dengan isian butter dan lapisan krim kopi diatasnya.</p>
+                <span class="price">Rp 15.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 15 -->
+         <div class="menu-card" data-price="25000" data-jumbo="40000">
+            <div class="card-img-wrapper">
+                <img src="st image/pistachiocream.jpg" alt="Pistachio Cream Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Pistachio Cream Salt Bread</h3>
+                <p class="card-desc">Salt Bread dengan isian krim pistachio dan taburan kacang pistachio diatasnya.</p>
+                <span class="price">Rp 25.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <! -- SAVORY SECTION -- >
+        <section id="savory" class="menu-section">
+            <h2 class="category-title">Savory Series</h2>
+            <div class="menu-grid">
+
+         <!-- ITEM 16 -->
+         <div class="menu-card" data-price="15000" data-jumbo="20000">
+            <div class="card-img-wrapper">
+                <img src="st image/creamyscrambledegg.jpg" alt="Creamy Scrambled Egg Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Creamy Scrambled Egg Salt Bread</h3>
+                <p class="card-desc">Salt Bread dengan isian telur orak-arik keju yang gurih.</p>
+                <span class="price">Rp 15.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+          <!-- ITEM 17 -->
+         <div class="menu-card" data-price="15000" data-jumbo="20000">
+            <div class="card-img-wrapper">
+                <img src="st image/koreangarlic.jpg" alt="Korean Garlic Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Korean Garlic Salt Bread</h3>
+                <p class="card-desc">Salt Bread dengan krim bawang putih yang gurih dan creamy.</p>
+                <span class="price">Rp 15.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+          <!-- ITEM 18 -->
+         <div class="menu-card" data-price="35000" data-jumbo="50000">
+            <div class="card-img-wrapper">
+                <img src="st image/crabrangoon.jpg" alt="Crab Rangoon Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Crab Rangoon Salt Bread</h3>
+                <p class="card-desc">Salt Bread dengan isian krim keju dan daging kepiting yang gurih.</p>
+                <span class="price">Rp 35.000</span>
+
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+          <!-- ITEM 19 -->
+         <div class="menu-card" data-price="35000" data-jumbo="50000">
+            <div class="card-img-wrapper">
+                <img src="st image/buttershrimp.jpg" alt="Butter Shrimp Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Butter Shrimp Salt Bread</h3>
+                <p class="card-desc">Salt Bread dengan isian krim jamur dan daging udang yang gurih.</p>
+                <span class="price">Rp 35.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+          <!-- ITEM 20 -->
+         <div class="menu-card" data-price="25000" data-jumbo="40000">
+            <div class="card-img-wrapper">
+                <img src="st image/creamygreenonion1.jpg" alt="Scallion Bacon Cream Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Scallion Bacon Cream Salt Bread</h3>
+                <p class="card-desc">Salt Bread dengan isian krim lemak sapi dan taburan bawang daun diatasnya.</p>
+                <span class="price">Rp 25.000</span>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+          <!-- ITEM 21 -->
+         <div class="menu-card" data-price="25000" data-jumbo="40000">
+            <div class="card-img-wrapper">
+                <img src="st image/yakisobapan.jpg" alt="Yakisoba Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Yakisoba Salt Bread</h3>
+                <span class="price">Rp 25.000</span>
+                <p class="card-desc">Salt Bread dengan isian Yakisoba yang gurih.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+          <!-- ITEM 22 -->
+         <div class="menu-card" data-price="18000" data-jumbo="25000">
+            <div class="card-img-wrapper">
+                <img src="st image/cheesetorch.jpg" alt="Cheese Torch Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Cheese Torch Salt Bread</h3>
+                <span class="price">Rp 18.000</span>
+                <p class="card-desc">Salt Bread dengan isian saus keju dan lembaran keju cheddar diatasnya.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 23 -->
+         <div class="menu-card" data-price="18000" data-jumbo="25000">
+            <div class="card-img-wrapper">
+                <img src="st image/charcoalsaltbread.jpg" alt="Charcoal Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Charcoal Salt Bread</h3>
+                <span class="price">Rp 18.000</span>
+                <p class="card-desc">Salt Bread dengan rasa charcoal yang kuat</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 24 -->
+         <div class="menu-card" data-price="20000" data-jumbo="35000">
+            <div class="card-img-wrapper">
+                <img src="st image/kimchisaltbread.png" alt="Kimchi Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Kimchi Salt Bread</h3>
+                <span class="price">Rp 20.000</span>
+                <p class="card-desc">Salt Bread dengan isian bumbu Kimchi yang kuat.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 25 -->
+         <div class="menu-card" data-price="18000" data-jumbo="25000">
+            <div class="card-img-wrapper">
+                <img src="st image/abonsaltbread.jpg" alt="Abon Salt Bread">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Abon Salt Bread</h3>
+                <span class="price">Rp 18.000</span>
+                <p class="card-desc">Salt Bread dengan isian abon sapi yang gurih.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <! -- BUNDLE SECTION -- >
+        <section id="bundle" class="menu-section">
+            <h2 class="category-title">Bundle Deals</h2>
+            <div class="menu-grid">
+
+          <!-- ITEM 26 -->
+         <div class="menu-card" data-price="450000" data-jumbo="550000">
+            <div class="card-img-wrapper">
+                <img src="st image/familygreetings.jpg" alt="Family Greeting Bundle">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Family Greeting Bundle</h3>
+                <span class="price">Rp 450.000</span>
+                <p class="card-desc">Bundle berisikan 36 pcs Salt Bread.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 27 -->
+         <div class="menu-card" data-price="80000" data-jumbo="100000">
+            <div class="card-img-wrapper">
+                <img src="st image/closefriendsvol1.jpg" alt="Close Friends Vol.1">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Close Friends Vol.1</h3>
+                <span class="price">Rp 80.000</span>
+                <p class="card-desc">Classic Salt Bread, Korean Garlic Salt Bread, Scallion Bacon Salt Bread, dan Creamy Corn Salt Bread.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 28 -->
+         <div class="menu-card" data-price="90000" data-jumbo="120000">
+            <div class="card-img-wrapper">
+                <img src="st image/closefriendsvol2.jpg" alt="Close Friends Vol.2">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Close Friends Vol.2</h3>
+                <span class="price">Rp 90.000</span>
+                <p class="card-desc">4 pcs Classic Salt Bread, Double Dark Choco, dan Cheese Torch Salt Bread.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 29 -->
+         <div class="menu-card" data-price="150000" data-jumbo="200000">
+            <div class="card-img-wrapper">
+                <img src="st image/motherinlaw.jpg" alt="Mother in Law Bundle">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Mother in Law Bundle</h3>
+                <span class="price">Rp 150.000</span>
+                <p class="card-desc">Limited Edition Only.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 30 -->
+        <div class="menu-card" data-price="450000" data-jumbo="550000">
+            <div class="card-img-wrapper">
+                <img src="st image/hariraya.jpg" alt="Hari Raya Bundle">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Hari Raya Bundle</h3>
+                <span class="price">Rp 450.000</span>
+                <p class="card-desc">Berisikan 24 pcs limited edition series.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <!-- PROMO SECTION -->
+        <section id="promo" class="menu-section">
+            <h2 class="category-title">Promo Special</h2>
+            <div class="menu-grid">
+
+         <!-- ITEM 31 -->
+         <div class="menu-card" data-price="50000" data-jumbo="55000">
+            <div class="card-img-wrapper">
+                <img src="st image/promob1g1.jpg" alt="BerryCitrus Double Deal">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Berry Citrus Salt Bread</h3>
+                <span class="price">Rp 50.000</span>
+                <p class="card-desc">Strawberry Cream Cheese Salt Bread dan Citrus Lemonade</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 32 -->
+         <div class="menu-card" data-price="35000" data-jumbo="45000">
+            <div class="card-img-wrapper">
+                <img src="st image/promob1g1_2.jpg" alt="Holiday Double Deal">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Holiday Double Deal</h3>
+                <span class="price">Rp 35.000</span>
+                <p class="card-desc">Classic Salt Bread dan Strawberry Cream Chesee.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 33 -->
+         <div class="menu-card" data-price="30000" data-jumbo="45000">
+            <div class="card-img-wrapper">
+                <img src="st image/promob2g3_1.jpg" alt="Trio Creamy">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Trio Creamy</h3>
+                <span class="price">Rp 30.000</span>
+                <p class="card-desc">Classic Salt Bread dengan krim dan taburan bawang daun yang wangi.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 34 -->
+         <div class="menu-card" data-price="40000" data-jumbo="50000">
+            <div class="card-img-wrapper">
+                <img src="st image/promob2g3_2.jpg" alt="Signature Box">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Signature Box</h3>
+                <span class="price">Rp 40.000</span>
+                <p class="card-desc">Classsic Salt Bread, Double Dark Choco, dan Choco Pistachio Salt Bread.</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+         <!-- ITEM 35 -->
+         <div class="menu-card" data-price="50000" data-jumbo="60000">
+            <div class="card-img-wrapper">
+                <img src="st image/promob2g3_3.jpg" alt="Sharing Delight">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">Sharing Delight</h3>
+                <span class="price">Rp 50.000</span>
+                <p class="card-desc">Limited Edition Only</p>
+                
+                <div class="card-options">
+                    <span class="option-title">Size</span>
+                    <div class="size-options">
+                        <button class="btn-size active" data-size="regular">Regular</button>
+                        <button class="btn-size" data-size="jumbo">Jumbo</button>                
+                    </div>
+                </div>
+
+                <div class="card-action">
+                    <div class="qty-control">
+                        <button class="btn-qty">-</button>
+                        <span class="qty-num">1</span>
+                        <button class="btn-qty">+</button>
+                    </div>
+                    <button class="btn-add">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        </section>
+
+    <!-- JAVASCRIPT LENGKAP -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartDrawer = document.getElementById('cartDrawer');
+            const closeCartBtn = document.getElementById('closeCart');
+            const btnOrderNow = document.getElementById('btnOrderNow');
+            const cartItemList = document.getElementById('cartItemList');
+            const cartTotalPrice = document.getElementById('cartTotalPrice');
+
+            const customPopup = document.getElementById('customPopup');
+            const closeCustomPopup = document.getElementById('closeCustomPopup');
+            const popupOrderType = document.getElementById('popupOrderType');
+            const dynamicOrderInput = document.getElementById('dynamicOrderInput');
+            const paymentMethod = document.getElementById('paymentMethod');
+            const popupTotalPrice = document.getElementById('popupTotalPrice');
+            const btnFixOrder = document.getElementById('btnFixOrder');
+
+            const takeawayModal = document.getElementById('takeawayModal');
+            const closeTakeawayBtn = document.getElementById('closeTakeawayBtn');
+
+            let cart = [];
+            let countdownInterval;
+
+            // === 1. LOGIKA CART DRAWER GESER (Tengah -> Kanan -> Kiri) ===
+            const positions = ['pos-center', 'pos-right', 'pos-left'];
+            let currentPosIndex = 0;
+
+            cartDrawer.addEventListener('click', function(event) {
+                // Jangan geser jika yang diklik tombol close atau tombol Order Now di dalam cart
+                if (event.target.tagName === 'BUTTON' || event.target.closest('button')) return;
+                
+                cartDrawer.classList.remove(positions[currentPosIndex]);
+                currentPosIndex = (currentPosIndex + 1) % positions.length;
+                cartDrawer.classList.add(positions[currentPosIndex]);
+            });
+
+            function updateCartUI() {
+                if (!cartItemList) return;
+                cartItemList.innerHTML = ''; 
+                let total = 0;
+
+                cart.forEach((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+
+                    const li = document.createElement('li');
+                    li.className = 'cart-item';
+                    li.innerHTML = `
+                        <span class="cart-item-title">${index + 1}. ${item.title} (${item.size})</span>
+                        <span class="cart-item-qty">x${item.quantity}</span>
+                        <span class="cart-item-price">Rp ${itemTotal.toLocaleString('id-ID')}</span>
+                    `;
+                    cartItemList.appendChild(li);
+                });
+
+                if (cartTotalPrice) {
+                    cartTotalPrice.textContent = 'Rp ' + total.toLocaleString('id-ID');
+                }
+            }
+
+            // === 2. FORM DINAMIS (DINE IN / DELIVERY / TAKE AWAY) ===
+            function handleOrderTypeChange() {
+                const selected = popupOrderType.value;
+                dynamicOrderInput.innerHTML = '';
+                paymentMethod.innerHTML = '';
+
+                if (selected === 'dineIn') {
+                    dynamicOrderInput.innerHTML = `
+                        <div class="form-group">
+                            <label>Table Number :</label>
+                            <input type="text" id="tableNumber" class="popup-input" placeholder="Contoh: Meja 05" required />
+                        </div>
+                    `;
+                    paymentMethod.innerHTML = `
+                        <option value="QRIS">QRIS</option>
+                        <option value="Transfer">Transfer Bank</option>
+                        <option value="Cash">Cash (Tunai)</option>
+                    `;
+                } else if (selected === 'delivery') {
+                    dynamicOrderInput.innerHTML = `
+                        <div class="form-group">
+                            <label>Your Address :</label>
+                            <input type="text" id="deliveryAddress" class="popup-input" placeholder="Masukkan alamat lengkap pengiriman" required />
+                        </div>
+                    `;
+                    paymentMethod.innerHTML = `
+                        <option value="Transfer">Transfer Bank</option>
+                        <option value="COD">Cash on Delivery (COD)</option>
+                    `;
+                } else if (selected === 'takeAway') {
+                    // Take Away tidak butuh input tambahan di form ini karena nanti pakai popup kartu khusus
+                    paymentMethod.innerHTML = `
+                        <option value="QRIS">QRIS</option>
+                        <option value="Transfer">Transfer Bank</option>
+                        <option value="Cash">Cash (Tunai)</option>
+                    `;
+                }
+            }
+
+            function refreshPopupDetails() {
+                const firstItemContainer = document.getElementById('firstItem');
+                const moreItemsContainer = document.getElementById('moreItemsList');
+                const toggleBtn = document.getElementById('toggleItemsBtn');
+
+                firstItemContainer.innerHTML = '';
+                moreItemsContainer.innerHTML = '';
+                let subtotal = 0;
+
+                cart.forEach((item, index) => {
+                    let itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+
+                    const itemHTML = `<div>• ${item.title} (${item.size}) x${item.quantity} - Rp ${itemTotal.toLocaleString('id-ID')}</div>`;
+
+                    if (index === 0) {
+                        firstItemContainer.innerHTML = itemHTML;
+                    } else {
+                        moreItemsContainer.innerHTML += itemHTML;
+                    }
+                });
+
+                if (cart.length > 1) {
+                    toggleBtn.style.display = 'flex';
+                    moreItemsContainer.style.display = 'none';
+                    toggleBtn.classList.remove('active');
+                } else {
+                    toggleBtn.style.display = 'none';
+                    moreItemsContainer.style.display = 'none';
+                }
+
+                if (popupOrderType.value === 'delivery') {
+                    subtotal += 10000;
+                    firstItemContainer.innerHTML += `<div style="color: #9c4b08; font-weight: bold; margin-top: 4px;">+ Biaya Packaging Delivery: Rp 10.000</div>`;
+                }
+
+                popupTotalPrice.textContent = 'Rp ' + subtotal.toLocaleString('id-ID');
+            }
+
+            // Toggle Ikon Item Lainnya
+            document.getElementById('toggleItemsBtn').addEventListener('click', function() {
+                const moreItemsContainer = document.getElementById('moreItemsList');
+                const isHidden = moreItemsContainer.style.display === 'none';
+                if (isHidden) {
+                    moreItemsContainer.style.display = 'flex';
+                    this.classList.add('active');
+                } else {
+                    moreItemsContainer.style.display = 'none';
+                    this.classList.remove('active');
+                }
+            });
+
+            if (btnOrderNow) {
+                btnOrderNow.addEventListener('click', () => {
+                    if (cart.length === 0) {
+                        alert('Keranjang kamu masih kosong!');
+                        return;
+                    }
+                    cartDrawer.classList.remove('show');
+                    cartDrawer.classList.add('hidden-drawer');
+                    handleOrderTypeChange();
+                    refreshPopupDetails();
+                    customPopup.classList.add('show');
+                });
+            }
+
+            popupOrderType.addEventListener('change', () => {
+                handleOrderTypeChange();
+                refreshPopupDetails();
+            });
+
+            if (closeCustomPopup) {
+                closeCustomPopup.addEventListener('click', () => {
+                    customPopup.classList.remove('show');
+                });
+            }
+
+            // === 3. LOGIKA TOMBOL CONFIRM & KARTU TAKE AWAY ===
+            if (btnFixOrder) {
+                btnFixOrder.addEventListener('click', () => {
+                    const name = document.getElementById('popupCustomerName').value.trim();
+                    if (!name) {
+                        alert('Silahkan isi nama pemesan terlebih dahulu!');
+                        return;
+                    }
+
+                    const orderTypeVal = popupOrderType.value;
+
+                    // Tutup popup order details
+                    customPopup.classList.remove('show');
+
+                    if (orderTypeVal === 'takeAway') {
+                        // Tampilkan Pop-up Kartu Take Away
+                        document.getElementById('displayCustomerName').textContent = name;
+                        const randomQueue = 'A-' + Math.floor(10 + Math.random() * 90);
+                        document.getElementById('queueNumber').textContent = randomQueue;
+                        
+                        takeawayModal.classList.add('show');
+                        startTakeawayTimer(15 * 60); // Countdown 15 menit
+                    } else {
+                        alert('Successfully Ordered! Thankyou!');
+                    }
+
+                    // Reset form & cart
+                    document.getElementById('popupCustomerName').value = '';
+                    document.getElementById('orderNote').value = '';
+                    cart = [];
+                    updateCartUI();
+                });
+            }
+
+            // Tombol Tutup Kartu Take Away
+            if (closeTakeawayBtn) {
+                closeTakeawayBtn.addEventListener('click', () => {
+                    takeawayModal.classList.remove('show');
+                    clearInterval(countdownInterval);
+
+                    alert('Successfully Ordered! Thankyou!');
+                });
+            }
+
+            function startTakeawayTimer(durationInSeconds) {
+                clearInterval(countdownInterval);
+                let timer = durationInSeconds;
+                const display = document.getElementById('takeawayTimer');
+
+                countdownInterval = setInterval(function () {
+                    let minutes = parseInt(timer / 60, 10);
+                    let seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (--timer < 0) {
+                        clearInterval(countdownInterval);
+                        display.textContent = "SIAP!";
+                    }
+                }, 1000);
+            }
+
+            // Close Cart Event
+            if (closeCartBtn && cartDrawer) {
+                closeCartBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    cart = [];
+                    updateCartUI();
+                    cartDrawer.classList.remove('show');
+                    cartDrawer.classList.add('hidden-drawer');
+                });
+            }
+
+            // Event Loop Kartu Menu & Tombol Qty
+            document.querySelectorAll('.menu-card').forEach(card => {
+                const sizeButtons = card.querySelectorAll('.btn-size');
+                const priceDisplay = card.querySelector('.price');
+                const qtyNum = card.querySelector('.qty-num');
+                const qtyControl = card.querySelector('.qty-control');
+                const btnMinus = qtyControl ? qtyControl.querySelector('.btn-qty:first-child') : null;
+                const btnPlus = qtyControl ? qtyControl.querySelector('.btn-qty:last-child') : null;
+                const btnAdd = card.querySelector('.btn-add');
+
+                const regularPrice = parseInt(card.getAttribute('data-price')) || 0;
+                const jumboPrice = parseInt(card.getAttribute('data-jumbo')) || regularPrice;
+        
+                let currentPrice = regularPrice;
+                let currentSize = 'Regular';
+                let quantity = 1;
+
+                if (priceDisplay) {
+                    priceDisplay.textContent = 'Rp ' + currentPrice.toLocaleString('id-ID');
+                }
+
+                sizeButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        sizeButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        if (button.getAttribute('data-size') === 'jumbo') {
+                            currentPrice = jumboPrice;
+                            currentSize = 'Jumbo';
+                        } else {
+                            currentPrice = regularPrice;
+                            currentSize = 'Regular';
+                        }
+                        if (priceDisplay) {
+                            priceDisplay.textContent = 'Rp ' + currentPrice.toLocaleString('id-ID');
+                        }
+                    });
+                });
+
+                if (btnMinus) {
+                    btnMinus.addEventListener('click', () => {
+                        if (quantity > 1) {
+                            quantity--;
+                            qtyNum.textContent = quantity;
+                        }
+                    });
+                }
+
+                if (btnPlus) {
+                    btnPlus.addEventListener('click', () => {
+                        quantity++;
+                        qtyNum.textContent = quantity;
+                    });
+                }
+
+                if (btnAdd && cartDrawer) {
+                    btnAdd.addEventListener('click', () => {
+                        const title = card.querySelector('.card-title').textContent.trim();
+                        const existingIndex = cart.findIndex(item => item.title === title && item.size === currentSize);
+
+                        if (existingIndex > -1) {
+                            cart[existingIndex].quantity += quantity;
+                        } else {
+                            cart.push({ title, size: currentSize, price: currentPrice, quantity });
+                        }
+
+                        updateCartUI();
+                        cartDrawer.classList.remove('hidden-drawer');
+                        cartDrawer.classList.add('show');
+                    });
+                }
+            });
+
+            // Efek Parallax Kursor
+            const parallaxContainer = document.getElementById('parallaxContainer');
+            const cursorImg = document.getElementById('cursorImg');
+
+            if (parallaxContainer && cursorImg) {
+                parallaxContainer.addEventListener('mousemove', (e) => {
+                    const rect = parallaxContainer.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    cursorImg.style.transform = `translate(${x * 0.06}px, ${y * 0.06}px)`;
+                });
+
+                parallaxContainer.addEventListener('mouseleave', () => {
+                    cursorImg.style.transform = `translate(0px, 0px)`;
+                });
+            }
+        });
+    </script>
+    </body>
+</html>
